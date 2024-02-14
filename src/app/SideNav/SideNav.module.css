@@ -1,11 +1,10 @@
 .SideNav{
-    background-color: red;
     width: 300px;
     height: 100vh;
     position: relative;
     overflow: hidden;
-
-    transition: 0.2s;
+    border-radius: 0 20px 20px 0;
+    background-color: white;
 }
 
 .logo{
@@ -15,7 +14,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: bisque;
 }
 
 .listBox{
@@ -24,21 +22,28 @@
     justify-content: center;
     align-items: center;
     list-style: none;
-    background-color: aqua;
+
 }
 
 .listBox li{
 
     border-radius: 10px;
     display: flex;
-    width: 85%;
+    width: 90%;
     align-items: center;
     height: 50px;
     margin-bottom: 5px;
     padding-left: 20px;
 }
+.listBox li p {
+    color: #5d6679;
+    min-width: 150px;
+}
+.listBox li:hover p {
+    color: #2d77dd;
+}
 .listBox li:hover{
-    background-color: rgb(22, 88, 211);
+    background-color: rgb(232, 241, 253);
 }
 
 .listBox .Icons{
@@ -49,10 +54,10 @@
 }
 .button{
     position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color:  brown;
-    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 10%;
+    background-color: #d5d6d6;
     left: 15%;
     top: 50%;
     transform: translate(-50%,-50%);
@@ -62,11 +67,9 @@
     align-items: center;
 
 }
-
-.button:hover{
-    background-color: red;
+.button:hover {
+    background-color: #bdbebe;
 }
-
 .SideNavButton{
     position: relative;
     width: 50%;
@@ -93,6 +96,28 @@
     width: 0;
 }
 
+.scaler{
+    
+    width: 0;
+    height: 0;
+    animation: scaleUp 0.4s forwards 1s;
+}
+.ahref{
+    width: 250px;
+    text-decoration: none;
+}
+
+@keyframes scaleUp {
+    from{
+        width: 0;
+        height: 0;
+    }
+    to{
+        width: 40px;
+        height: 40px;
+    }
+}
+
 @media screen and (max-width: 700px){
     .SideNav{
         position: absolute;
@@ -102,3 +127,4 @@
         width: 0;
     }
 }
+

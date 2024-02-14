@@ -1,7 +1,5 @@
-import style from "./page.module.css";
-
-const page = () => {
-  return <div>page</div>;
+const Dashboard = () => {
+  return <div>Dashboard</div>;
 };
 
-export default page;
+export default Dashboard;
