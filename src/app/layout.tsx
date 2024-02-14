@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import SideNav from "../SideNav";
 import "./globles.css";
 
 export const metadata: Metadata = {
@@ -13,7 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <SideNav />
+        {children}
+      </body>
     </html>
   );
 }
