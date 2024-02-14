@@ -15,7 +15,7 @@ const Footer = () => {
         </h2>
         <ul className={style.listBox}>
           {list.map((item) => (
-            <li>
+            <li key={item}>
               <div className={style.Icons}></div>
               {item}
             </li>
@@ -25,6 +25,7 @@ const Footer = () => {
     </>
   );
 };
+
 interface NavButtonProps {
   setState: React.Dispatch<React.SetStateAction<boolean>>;
   value: boolean;
