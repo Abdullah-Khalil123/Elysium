@@ -1,8 +1,9 @@
 .RoomItem{
     padding: 10px 10px;
-    width: 120px;
+    width: 160px;
     border: solid 1px #d5d8dd;
     border-radius: 10px;
+    margin-top: 10px;
 }
 
 .Rooms{
@@ -11,10 +12,12 @@
     padding: 20px 10px;
     border-radius: 10px;
     margin-bottom: 20px;
+    min-width: 370px;
 }
 
 .RoomsBoxes{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 .RoomItemButtonflex{

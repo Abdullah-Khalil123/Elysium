@@ -3,7 +3,7 @@
     height: 100vh;
     position: relative;
     overflow: hidden;
-    border-radius: 0 0px 20px 0;
+    border-radius: 0 20px 20px 0;
     background-color: white;
 }
 
@@ -100,6 +100,7 @@
 
 .scaler{
     
+    top: 35px !important;
     width: 0;
     height: 0;
     animation: scaleUp 0.4s forwards 1s;
@@ -111,6 +112,7 @@
 
 @keyframes scaleUp {
     from{
+
         width: 0;
         height: 0;
     }

@@ -10,11 +10,13 @@
 }
 .overviewItems{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
 
 .overviewItem{
+    margin-top: 10px;
     display: flex;
     align-items: flex-end;
 }
