@@ -2,10 +2,19 @@
 import React, { useState } from "react";
 import style from "./SideNav.module.css";
 import Link from "next/link";
-const Footer = () => {
+import Icons from "./SideNav";
+const SideNav = () => {
+  console.log(Icons);
   const [extended, setextended] = useState(true);
-
-  const list = ["Dashboard", "Front desk", "Guest", "Rooms", "Deal", "Rate"];
+  const innerWidth = window.innerWidth;
+  const list2 = [
+    { name: "Dashboard", icon: Icons[0] },
+    { name: "Front desk", icon: Icons[1] },
+    { name: "Guest", icon: Icons[2] },
+    { name: "Rooms", icon: Icons[3] },
+    { name: "Deal", icon: Icons[4] },
+    { name: "Rate", icon: Icons[5] },
+  ];
   return (
     <>
       {extended ? null : (
@@ -17,11 +26,20 @@ const Footer = () => {
           Elysium
         </h2>
         <ul className={style.listBox}>
-          {list.map((item) => (
-            <Link href={"/" + item} className={style.ahref}>
-              <li key={item}>
-                <div className={style.Icons}></div>
-                <p>{item}</p>
+          {list2.map((item) => (
+            <Link
+              href={"/" + item.name}
+              className={style.ahref}
+              key={item.name}
+              onClick={() => {
+                innerWidth <= 700 ? setextended(false) : null;
+              }}
+            >
+              <li>
+                <div className={style.Icons}>
+                  <img src={item.icon} />
+                </div>
+                <p>{item.name}</p>
               </li>
             </Link>
           ))}
@@ -49,4 +67,4 @@ const NavButton: React.FC<NavButtonProps> = ({ setState, value, isColl }) => {
   );
 };
 
-export default Footer;
+export default SideNav;
