@@ -1,12 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./SideNav.module.css";
 import Link from "next/link";
 import Icons from "./SideNav";
 const SideNav = () => {
-  console.log(Icons);
   const [extended, setextended] = useState(true);
-  const innerWidth = window.innerWidth;
+  let innerWidth: number;
   const list2 = [
     { name: "Dashboard", icon: Icons[0] },
     { name: "Front desk", icon: Icons[1] },
@@ -15,6 +14,10 @@ const SideNav = () => {
     { name: "Deal", icon: Icons[4] },
     { name: "Rate", icon: Icons[5] },
   ];
+
+  useEffect(() => {
+    innerWidth = window.innerWidth;
+  });
   return (
     <>
       {extended ? null : (

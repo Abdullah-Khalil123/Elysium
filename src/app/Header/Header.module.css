@@ -1,0 +1,19 @@
+.Header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: white;
+    margin-bottom: 20px;
+}
+.Header p{
+    color: #5d6679;
+}
+.Header button{
+    padding: 7px 20px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background-color: #1570ef;
+    color: white;
+    cursor: pointer;
+}

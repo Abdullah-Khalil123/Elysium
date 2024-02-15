@@ -1,0 +1,25 @@
+.overview{
+    width: calc(100% - 40px);
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px 10px;
+    margin-bottom: 20px;
+}
+.overview h2{
+    color: #5d6679;
+}
+.overviewItems{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.overviewItem{
+    display: flex;
+    align-items: flex-end;
+}
+
+.overview h3{
+    margin-left: 5px;
+    color: #1366d9;
+}

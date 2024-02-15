@@ -1,9 +1,9 @@
 .SideNav{
-    width: 300px;
+    width: 400px;
     height: 100vh;
     position: relative;
     overflow: hidden;
-    border-radius: 0 20px 20px 0;
+    border-radius: 0 0px 20px 0;
     background-color: white;
 }
 
@@ -53,8 +53,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-.Icons img{    
 }
 .button{
     position: absolute;

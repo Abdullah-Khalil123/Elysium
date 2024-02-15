@@ -1,0 +1,41 @@
+.RoomItem{
+    padding: 10px 10px;
+    width: 120px;
+    border: solid 1px #d5d8dd;
+    border-radius: 10px;
+}
+
+.Rooms{
+    width: calc(100% - 40px);
+    background-color: white;
+    padding: 20px 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.RoomsBoxes{
+    display: flex;
+    justify-content: space-between;
+}
+.RoomItemButtonflex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.RoomItemButtonflex p {
+    font-size: 12px;
+    padding: 2px 5px;
+    background-color: #b6e9d1;
+    border-radius: 3px;
+}
+
+.RoomItemButtonflex button{
+    border: none;
+    outline: none;
+    padding: 3px 7px;
+    border-radius: 50%;
+}
+
+.RoomItemButtonflex button:hover {
+    background-color: #d5d8dd;
+}

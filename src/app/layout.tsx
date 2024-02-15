@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
-import SideNav from "./SideNav/page";
+import SideNav from "./SideNav";
 import "./globles.css";
+import Header from "./Header";
+import { Inter } from "next/font/google";
 
+const inter = Inter({
+  subsets: ["latin"],
+});
 export const metadata: Metadata = {
   title: "Elysium Reports",
   description: "Data Manager by Nextjs",
@@ -14,9 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={inter.className}>
         <SideNav />
-        {children}
+        <div style={{ width: "100%" }}>
+          <Header />
+          {children}
+        </div>
       </body>
     </html>
   );
