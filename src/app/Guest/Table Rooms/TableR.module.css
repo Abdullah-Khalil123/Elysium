@@ -1,0 +1,28 @@
+.tableGuest{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tableBorder{
+    border: solid 1px #bbbfc4;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tableHeadings th{
+    border-bottom: solid 1px #bbbfc4;
+    text-align: start;
+    padding: 10px;
+    color: #667085;
+}
+
+.tableData td{
+    padding: 10px;
+    border-top: solid 1px #bbbfc4;
+    color: #5d6679;
+}
+
+.tableData td:first-child{
+    font-weight: bold;
+    color: #383c45;
+}

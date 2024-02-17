@@ -46,6 +46,10 @@
     background-color: rgb(232, 241, 253);
 }
 
+.liItemSelected {
+    background-color: rgb(232, 241, 253);
+}
+
 .listBox .Icons{
     margin-right: 15px;
     height: 30px;
@@ -54,6 +58,7 @@
     align-items: center;
     justify-content: center;
 }
+
 .button{
     position: absolute;
     width: 40px;

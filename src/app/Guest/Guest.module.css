@@ -1,0 +1,31 @@
+.Guest{
+    padding: 0px 10px;
+}
+
+.GuestTableSelectors{
+    width: 100%;
+    height: max-content;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.GuestTableSelectors button{
+    color: #575a62;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    padding: 10px 20px;
+    border: solid 1px #858d9d;
+    outline: none;
+}
+
+.pageGuestSelectors{
+   display: flex; 
+   justify-content: space-between;
+   align-items: center;
+   width: 200px;
+}

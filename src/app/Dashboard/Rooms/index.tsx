@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./Rooms.module.css";
+import icon from "../../../../public/ellipises.svg";
 
 const RoomsDashBoard = () => {
   return (
@@ -20,7 +21,9 @@ const RoomsItem = () => {
     <div className={style.RoomItem}>
       <div className={style.RoomItemButtonflex}>
         <p>2 Deals</p>
-        <button>x</button>
+        <button>
+          <img src={icon.src} alt="" />
+        </button>
       </div>
       <h5>Single Bed</h5>
       <h4>2/30</h4>

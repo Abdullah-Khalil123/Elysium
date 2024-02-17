@@ -5,6 +5,7 @@ import Link from "next/link";
 import Icons from "./SideNav";
 const SideNav = () => {
   const [extended, setextended] = useState(true);
+  const [pageSelected, setpageSelected] = useState("");
   let innerWidth: number;
   const list2 = [
     { name: "Dashboard", icon: Icons[0] },
@@ -16,8 +17,14 @@ const SideNav = () => {
   ];
 
   useEffect(() => {
+    setpageSelected(window.location.pathname.substring(1));
     innerWidth = window.innerWidth;
   });
+
+  const handleLinkClick = (name: string) => {
+    setpageSelected(name);
+  };
+
   return (
     <>
       {extended ? null : (
@@ -38,7 +45,14 @@ const SideNav = () => {
                 innerWidth <= 700 ? setextended(false) : null;
               }}
             >
-              <li>
+              <li
+                className={
+                  item.name == pageSelected ? style.liItemSelected : style.Dummy
+                }
+                onClick={() => {
+                  handleLinkClick(item.name);
+                }}
+              >
                 <div className={style.Icons}>
                   <img src={item.icon} />
                 </div>

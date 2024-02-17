@@ -1,6 +1,6 @@
 .RoomItem{
-    padding: 10px 10px;
-    width: 160px;
+    padding: 20px 10px;
+    min-width: 200px;
     border: solid 1px #d5d8dd;
     border-radius: 10px;
     margin-top: 10px;
@@ -30,15 +30,27 @@
     padding: 2px 5px;
     background-color: #b6e9d1;
     border-radius: 3px;
+    height: fit-content;
 }
 
 .RoomItemButtonflex button{
     border: none;
     outline: none;
-    padding: 3px 7px;
     border-radius: 50%;
-}
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    width: 30px;
+    height: 30px;
+}
+.RoomItemButtonflex button img{
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+
+    
+}
 .RoomItemButtonflex button:hover {
     background-color: #d5d8dd;
 }
