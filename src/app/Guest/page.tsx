@@ -4,6 +4,10 @@ import Table from "./Table Rooms";
 const Guest = () => {
   return (
     <div className={style.Guest}>
+      <div className={style.roomSelectors}>
+        <button>501</button>
+        <button>601</button>
+      </div>
       <Table />
       <div className={style.GuestTableSelectors}>
         <button>Previous</button>

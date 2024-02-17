@@ -11,15 +11,15 @@ const SideNav = () => {
     { name: "Dashboard", icon: Icons[0] },
     { name: "Front desk", icon: Icons[1] },
     { name: "Guest", icon: Icons[2] },
-    { name: "Rooms", icon: Icons[3] },
-    { name: "Deal", icon: Icons[4] },
+    { name: "Expenses", icon: Icons[3] },
+    { name: "Monthly", icon: Icons[4] },
     { name: "Rate", icon: Icons[5] },
   ];
 
   useEffect(() => {
     setpageSelected(window.location.pathname.substring(1));
     innerWidth = window.innerWidth;
-  });
+  }, []);
 
   const handleLinkClick = (name: string) => {
     setpageSelected(name);
@@ -47,7 +47,7 @@ const SideNav = () => {
             >
               <li
                 className={
-                  item.name == pageSelected ? style.liItemSelected : style.Dummy
+                  pageSelected == item.name ? style.liItemSelected : style.Dummy
                 }
                 onClick={() => {
                   handleLinkClick(item.name);

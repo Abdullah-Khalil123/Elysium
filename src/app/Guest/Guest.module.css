@@ -22,10 +22,57 @@
     border: solid 1px #858d9d;
     outline: none;
 }
-
+.GuestTableSelectors button:hover{
+    color: #1366d9;
+    cursor: pointer;
+    background-color: #e8f1fd;
+}
+.GuestTableSelectors button:active{
+    background-color: #dbe1ee;
+}
 .pageGuestSelectors{
    display: flex; 
    justify-content: space-between;
    align-items: center;
    width: 200px;
+}
+
+.pageGuestSelectors p{
+    color: #858d9d;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pageGuestSelectors p:hover{
+    color: #1366d9;
+    cursor: pointer;
+}
+.selectedPage{
+    color: #1366d9;
+}
+.roomSelectors{
+    width: fit-content;
+    padding: 10px 10px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.roomSelectors button{
+    width: 70px;
+    height: 30px;
+    border-radius: 100px;
+    outline: none;
+    border: solid 1px #989fad ;
+    color: #5d6679;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.roomSelectors button:hover{
+    border-color: #1570ef;
+    background-color: #e8f1fd;
 }
