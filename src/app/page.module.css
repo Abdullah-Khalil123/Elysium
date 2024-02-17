@@ -1,0 +1,13 @@
+.ChildernHolder{
+    height: calc(100vh - 120px);
+    overflow-y: scroll;
+}
+
+.ChildernHolder::-webkit-scrollbar {
+    width: 10px;
+}
+
+.ChildernHolder::-webkit-scrollbar-thumb {
+    background: #a9a9aa5f;
+    border-radius: 10px;
+}

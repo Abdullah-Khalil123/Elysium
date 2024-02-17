@@ -1,0 +1,17 @@
+.GraphArea{
+    width: calc(100% - 20px);
+}
+
+.BarGraph{
+    min-width: 350px;
+    max-width: 45%;
+    aspect-ratio: 2 / 1;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.BarGraph p{
+    font-weight: 500;
+    margin-top: 10px;
+}

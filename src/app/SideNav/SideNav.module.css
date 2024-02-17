@@ -144,5 +144,13 @@
         margin-bottom: 15px;
         background-color: #eef0f2;
     }
+
+    .liItemSelected{
+        background-color: rgb(213, 228, 248) !important;
+    }
+
+    .liItemSelected p{
+        color: #2d77dd !important;
+    }
 }
 

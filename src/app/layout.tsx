@@ -3,6 +3,7 @@ import SideNav from "./SideNav";
 import "./globles.css";
 import Header from "./Header";
 import { Inter } from "next/font/google";
+import style from "./page.module.css";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,7 +24,7 @@ export default function RootLayout({
         <SideNav />
         <div style={{ width: "100%" }}>
           <Header />
-          {children}
+          <div className={style.ChildernHolder}>{children}</div>
         </div>
       </body>
     </html>

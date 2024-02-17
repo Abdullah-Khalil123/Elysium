@@ -6,11 +6,23 @@
 .tableBorder{
     border: solid 1px #bbbfc4;
     border-radius: 10px;
-    overflow: hidden;
+    overflow-x: scroll;
+}
+.tableBorder::-webkit-scrollbar{
+    height: 10px;
+}
+.tableBorder::-webkit-scrollbar-track {
+    border-bottom :solid 1px #bbbfc4;
+    border-radius: 10px;
+    background-color: #eef0f2;
+}
+.tableBorder::-webkit-scrollbar-thumb{
+    background-color: #1366d91c ;
+    border-radius: 1px;
 }
 
 .tableHeadings th{
-    border-bottom: solid 1px #bbbfc4;
+    border-bottom: solid 1px #bbbfc480;
     text-align: start;
     padding: 10px;
     color: #667085;

@@ -1,5 +1,9 @@
 .Guest{
     padding: 0px 10px;
+    height: calc(100vh - 125px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .GuestTableSelectors{

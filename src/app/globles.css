@@ -6,4 +6,6 @@
 body{
     display: flex;
     background-color: #eef0f2;
+    height: 100vh;
+    overflow-y: hidden;
 }

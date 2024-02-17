@@ -6,22 +6,22 @@ import Icons from "./SideNav";
 const SideNav = () => {
   const [extended, setextended] = useState(true);
   const [pageSelected, setpageSelected] = useState("");
-  let innerWidth: number;
+  let innerWidth: number = window.innerWidth;
   const list2 = [
     { name: "Dashboard", icon: Icons[0] },
     { name: "Front desk", icon: Icons[1] },
     { name: "Guest", icon: Icons[2] },
     { name: "Expenses", icon: Icons[3] },
-    { name: "Monthly", icon: Icons[4] },
+    { name: "Monthly Data", icon: Icons[4] },
     { name: "Rate", icon: Icons[5] },
   ];
 
   useEffect(() => {
     setpageSelected(window.location.pathname.substring(1));
-    innerWidth = window.innerWidth;
   }, []);
 
   const handleLinkClick = (name: string) => {
+    innerWidth <= 700 ? setextended(false) : null;
     setpageSelected(name);
   };
 
@@ -41,9 +41,6 @@ const SideNav = () => {
               href={"/" + item.name}
               className={style.ahref}
               key={item.name}
-              onClick={() => {
-                innerWidth <= 700 ? setextended(false) : null;
-              }}
             >
               <li
                 className={
