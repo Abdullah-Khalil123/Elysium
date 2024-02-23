@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React, { useEffect, useState } from "react";
 import style from "./SideNav.module.css";
 import Link from "next/link";
@@ -8,7 +8,16 @@ const Icons = ['/Vector.svg','/Vector (1).svg','/Vector (2).svg','/Vector (3).sv
 const SideNav = () => {
   const [extended, setextended] = useState(true);
   const [pageSelected, setpageSelected] = useState("");
-  let innerWidth: number = window.innerWidth;
+
+  useEffect(()=>{
+    const handleResize=()=>{
+      setextended(window.innerWidth>700)
+    }
+    handleResize();
+    window.addEventListener("resize",handleResize)
+    return () => window.removeEventListener("resize",handleResize)
+  },[])
+
   const list2 = [
     { name: "Dashboard", icon: Icons[0] },
     { name: "Front desk", icon: Icons[1] },
@@ -23,7 +32,7 @@ const SideNav = () => {
   }, []);
 
   const handleLinkClick = (name: string) => {
-    innerWidth <= 700 ? setextended(false) : null;
+    extended ? setextended(false) : null;
     setpageSelected(name);
   };
 
