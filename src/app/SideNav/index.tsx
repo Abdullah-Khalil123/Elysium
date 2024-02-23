@@ -1,25 +1,31 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import style from "./SideNav.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import nextConfig from '../../../next.config'
+import nextConfig from "../../../next.config";
 
-
-const Icons = ['Vector.svg','Vector (1).svg','Vector (2).svg','Vector (3).svg','Vector (4).svg','Vector (5).svg'];
+const Icons = [
+  "Vector.svg",
+  "Vector (1).svg",
+  "Vector (2).svg",
+  "Vector (3).svg",
+  "Vector (4).svg",
+  "Vector (5).svg",
+];
 
 const SideNav = () => {
   const [extended, setextended] = useState(true);
   const [pageSelected, setpageSelected] = useState("");
 
-  useEffect(()=>{
-    const handleResize=()=>{
-      setextended(window.innerWidth>700)
-    }
+  useEffect(() => {
+    const handleResize = () => {
+      setextended(window.innerWidth > 700);
+    };
     handleResize();
-    window.addEventListener("resize",handleResize)
-    return () => window.removeEventListener("resize",handleResize)
-  },[])
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const list2 = [
     { name: "Dashboard", icon: Icons[0] },
@@ -35,7 +41,11 @@ const SideNav = () => {
   }, []);
 
   const handleLinkClick = (name: string) => {
-    extended ? setextended(false) : null;
+    if (window.innerWidth < 700) {
+      extended ? setextended(false) : null;
+    } else {
+      extended ? setextended(true) : null;
+    }
     setpageSelected(name);
   };
 
@@ -65,7 +75,7 @@ const SideNav = () => {
                 }}
               >
                 <div className={style.Icons}>
-                  <Image 
+                  <Image
                     src={`${nextConfig.basePath}/${item.icon}`}
                     alt="image"
                     width={22}
