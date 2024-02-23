@@ -2,8 +2,11 @@
 import React, { useEffect, useState } from "react";
 import style from "./SideNav.module.css";
 import Link from "next/link";
+import Image from "next/image";
+import nextConfig from '../../../next.config'
 
-const Icons = ['/Vector.svg','/Vector (1).svg','/Vector (2).svg','/Vector (3).svg','/Vector (4).svg','/Vector (5).svg'];
+
+const Icons = ['Vector.svg','Vector (1).svg','Vector (2).svg','Vector (3).svg','Vector (4).svg','Vector (5).svg'];
 
 const SideNav = () => {
   const [extended, setextended] = useState(true);
@@ -62,7 +65,12 @@ const SideNav = () => {
                 }}
               >
                 <div className={style.Icons}>
-                  <img src={item.icon} alt="image"/>
+                  <Image 
+                    src={`${nextConfig.basePath}/${item.icon}`}
+                    alt="image"
+                    width={22}
+                    height={22}
+                  />
                 </div>
                 <p>{item.name}</p>
               </li>
