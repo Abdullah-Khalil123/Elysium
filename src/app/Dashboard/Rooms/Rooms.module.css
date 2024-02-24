@@ -55,3 +55,15 @@
 .RoomItemButtonflex button:hover {
     background-color: #d5d8dd;
 }
+
+
+@media screen and (max-width:700px){
+    .RoomsBoxes {
+        justify-content: center;
+    }
+    .RoomItem {
+        width: 85%;
+        margin: 0px 10px;
+        margin-top: 10px;
+    }
+}
