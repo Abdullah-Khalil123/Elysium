@@ -1,5 +1,3 @@
-
-
 .Rooms{
     width: calc(100% - 40px);
     background-color: white;
@@ -8,14 +6,15 @@
     margin-bottom: 20px;
 }
 .RoomItem{
-    min-width: 150px;
-    max-width: 200px;
     padding: 20px 10px;
     min-width: 150px;
     border: solid 1px #d5d8dd;
     border-radius: 10px;
-    margin-top: 10px;
+    margin: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
+
 .RoomsBoxes{
     display: flex;
     flex-wrap: wrap;
@@ -62,7 +61,7 @@
         justify-content: center;
     }
     .RoomItem {
-        width: 85%;
+        min-width: 70%;
         margin: 0px 10px;
         margin-top: 10px;
     }

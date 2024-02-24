@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import SideNav from "./SideNav";
 import "./globles.css";
 import Header from "./Header";
-import { Inter } from "next/font/google";
+import { Outfit } from "next/font/google";
 import style from "./page.module.css";
 
-const inter = Inter({
+const outfit = Outfit({
   subsets: ["latin"],
 });
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={outfit.className}>
         <SideNav />
         <div style={{ width: "100%" }}>
           <Header />

@@ -18,7 +18,7 @@ const RoomsDashBoard = () => {
 
 const RoomsItem = () => {
   return (
-    <div className={style.RoomItem}>
+    <div className={style.RoomItem} style={{ flexBasis: "calc(25% - 5%)" }}>
       <div className={style.RoomItemButtonflex}>
         <p>2 Deals</p>
         <button>

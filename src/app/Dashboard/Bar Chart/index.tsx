@@ -20,17 +20,30 @@ Chartjs.register({
 });
 
 const data = {
-  labels: ["January", "February", "March", "April", "May", "June", "July"],
+  labels: [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "Novemeber",
+    "December",
+  ],
   datasets: [
     {
       label: "501",
-      data: [65, 59, 80, 81, 56, 55, 40],
+      data: [65, 59, 80, 81, 56, 55, 40, 56, 23, 87, 23, 67, 23],
       backgroundColor: "#5f9bed",
       borderRadius: 5,
     },
     {
       label: "601",
-      data: [65, 59, 80, 81, 56, 55, 40].reverse(),
+      data: [65, 59, 80, 81, 56, 55, 40, 56, 23, 87, 23, 67, 23].reverse(),
       backgroundColor: "#b6e9d1",
       borderRadius: 5,
     },
