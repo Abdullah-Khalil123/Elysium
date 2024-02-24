@@ -66,8 +66,8 @@
     height: 40px;
     border-radius: 10%;
     background-color: #d5d6d6;
-    left: 15%;
-    top: 50%;
+    left: 11%;
+    top: 43%;
     transform: translate(-50%,-50%);
 
     display: flex;
@@ -109,7 +109,7 @@
     top: 35px !important;
     width: 0;
     height: 0;
-    animation: scaleUp 0.4s forwards 1s;
+    animation: scaleUp 0.3s forwards;
 }
 .ahref{
     width: 250px;
@@ -119,8 +119,8 @@
 @keyframes scaleUp {
     from{
 
-        width: 0;
-        height: 0;
+        width: 30px;
+        height: 30px;
     }
     to{
         width: 40px;
