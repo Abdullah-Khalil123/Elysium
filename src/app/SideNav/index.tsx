@@ -103,7 +103,7 @@ const NavButton: React.FC<NavButtonProps> = ({ setState, value, isColl }) => {
     <div
       className={`${style.button} ${!isColl ? style.scaler : null}`}
       onClick={() => setState(!value)}
-      style={!value ? { top: "50px", left: "45px" } : {}}
+      style={!value ? { marginTop: "8px", left: "45px" } : {}}
     >
       <div className={style.SideNavButton}></div>
     </div>
