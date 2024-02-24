@@ -15,3 +15,9 @@
     font-weight: 500;
     margin-top: 10px;
 }
+
+@media screen and (max-width: 700px){
+    .BarGraph {
+        min-width: calc(100% - 20px);
+    }
+}

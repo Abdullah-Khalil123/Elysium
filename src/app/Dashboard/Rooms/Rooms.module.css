@@ -8,7 +8,6 @@
     margin-bottom: 20px;
 }
 .RoomItem{
-    flex: 1 2 100px;
     min-width: 150px;
     max-width: 200px;
     padding: 20px 10px;
