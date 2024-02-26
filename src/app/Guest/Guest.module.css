@@ -57,26 +57,21 @@
 .selectedPage{
     color: #1366d9;
 }
-.roomSelectors{
-    width: fit-content;
-    padding: 10px 10px;
-    width: 150px;
+
+.roomSelectors {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.roomSelectors button{
-    width: 70px;
-    height: 30px;
-    border-radius: 100px;
-    outline: none;
-    border: solid 1px #989fad ;
-    color: #5d6679;
-    font-weight: 600;
-    cursor: pointer;
+    justify-content: flex-end;
+    margin-bottom: 10px;
 }
 
-.roomSelectors button:hover{
-    border-color: #1570ef;
-    background-color: #e8f1fd;
+.roomSelectors input[type = 'text'] {
+    background-image: url('../../../public/search.svg');
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position: 10px;
+    box-sizing: border-box;
+    padding: 5px 10px 5px 40px;
+    border: 2px solid #bbbfc4;
+    border-radius: 8px;
+    outline: none;
 }
