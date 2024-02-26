@@ -6,8 +6,7 @@ const Guest = () => {
     <div className={style.Guest}>
       <div>
         <div className={style.roomSelectors}>
-          <button>501</button>
-          <button>601</button>
+          <input type="text" placeholder="Search by Room Number" />
         </div>
         <Table />
       </div>
