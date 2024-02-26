@@ -65,7 +65,7 @@
 }
 
 .roomSelectors input[type = 'text'] {
-    background-image: url('/Elysium/Vector.svg');
+    background-image: url('/Elysium/search.svg');
     background-repeat: no-repeat;
     background-size: 15px;
     background-position: 10px;
