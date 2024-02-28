@@ -1,157 +1,87 @@
 .SideNav{
-    width: 400px;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-    border-radius: 0 0 20px 0;
+    width: 370px;
     background-color: white;
+    overflow: hidden;
+    transition: 0.2s;
 }
 
-.logo{
-    position: relative;
-    font-size: 28px;
-    height: 100px;
+.ButtonTitle {
     display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    height: 60px;
     align-items: center;
-    justify-content: center;
-}
-
-.listBox{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-
-}
-
-.listBox li{
-
-    border-radius: 10px;
-    display: flex;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
     width: 90%;
+}
+.ButtonTitle button {
+    height: 35px;
+    width: 35px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dummy{
+    width: 35px;
+}
+
+.ahref{
+    display: block;
+    width: 90%;
+    margin: 0px auto 10px auto;
+    text-decoration: none;
+    color: black;
+    border-radius: 10px;
+}
+.ahref:hover{
+    background-color: #e8f1fd;
+}
+.ahref li{
+    display: flex;
     align-items: center;
     height: 50px;
-    margin-bottom: 5px;
-    padding-left: 20px;
+    padding-left: 10px;
 }
-.listBox li p {
-    color: #5d6679;
-    min-width: 150px;
+.ahref li .listicon {
+    margin-right: 10px;
 }
-.listBox li:hover p {
-    color: #2d77dd;
-}
-.listBox li:hover{
-    background-color: rgb(232, 241, 253);
+.ulItems{
+    list-style: none;
 }
 
-.liItemSelected {
-    background-color: rgb(232, 241, 253);
+.ulItems p{
+    min-width: 100px;
 }
-
-.listBox .Icons{
-    margin-right: 15px;
-    height: 30px;
-    width: 30px;
-    display: flex;
-    align-items: center;
+.collapsed{
+    width: 70px;
+}
+.collapsed .ahref li{
     justify-content: center;
 }
+.collapsed h2{
+    display: none;
+}
+
+.collapsed p{
+    display: none;
+}
+
+.collapBut{
+    margin: 0px auto;
+}
+
+.selectedPage {
+    background-color: #e8f1fd;
+}
 
 
-.button{
+.mobileView{
     position: absolute;
-    width: 40px;
-    height: 40px;
-    border-radius: 10%;
-    background-color: #d5d6d6;
-    left: 11%;
-    top: 43%;
-    transform: translate(-50%,-50%);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-.button:hover {
-    background-color: #bdbebe;
-}
-.SideNavButton{
-    position: relative;
-    width: 50%;
-    height: 2px;
-    background-color: black;
-}
-
-.SideNavButton::after,.SideNavButton::before {
-    content: '';
-    position: absolute;
-    background-color: black;
     width: 100%;
     height: 100%;
 }
-
-.SideNavButton::after{
-    bottom: 7px;
-}
-
-.SideNavButton::before{
-    top: 7px;
-}
-.Extended{
-    width: 0;
-}
-
-.scaler{
-    
-    top: 35px !important;
-    width: 0;
-    height: 0;
-    animation: scaleUp 0.3s forwards;
-}
-.ahref{
-    width: 250px;
-    text-decoration: none;
-}
-
-@keyframes scaleUp {
-    from{
-
-        width: 30px;
-        height: 30px;
-    }
-    to{
-        width: 40px;
-        height: 40px;
-    }
-}
-
-@media screen and (max-width: 700px){
-    .SideNav{
-        position: absolute;
-        width: 100%;
-        border-radius: 0;
-    }
-    .Extended{
-        width: 0;
-    }
-    .listBox .ahref{
-        width: 90%;
-    }
-
-    .listBox li{
-        margin-bottom: 15px;
-        background-color: #eef0f2;
-    }
-
-    .liItemSelected{
-        background-color: rgb(213, 228, 248) !important;
-    }
-
-    .liItemSelected p{
-        color: #2d77dd !important;
-    }
-}
-
