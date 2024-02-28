@@ -10,7 +10,7 @@ const SideNav = () => {
   const [SelectedPage, setSelectedPage] = useState("");
   const [isMobile, setisMobile] = useState(false);
   function isMobileDevice() {
-    if (window.innerWidth < 700) {
+    if (window.innerWidth < 900) {
       setisMobile(true);
       return true;
     } else {
