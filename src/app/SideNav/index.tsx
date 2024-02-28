@@ -57,10 +57,10 @@ const SideNav = () => {
 
   const list = [
     { name: "Dashboard", icon: Icons[0] },
-    { name: "Front desk", icon: Icons[1] },
+    { name: "Front_desk", icon: Icons[1] },
     { name: "Guest", icon: Icons[2] },
     { name: "Expenses", icon: Icons[3] },
-    { name: "Monthly Data", icon: Icons[4] },
+    { name: "Monthly_Data", icon: Icons[4] },
     { name: "Rate", icon: Icons[5] },
   ];
 
@@ -118,7 +118,7 @@ const SideNav = () => {
                   alt={"image"}
                   className={style.listicon}
                 />
-                <p>{item.name}</p>
+                <p>{item.name.split("_").join(" ")}</p>
               </li>
             </Link>
           ))}
