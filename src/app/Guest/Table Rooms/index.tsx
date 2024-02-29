@@ -1,4 +1,10 @@
+import { data } from "@/Data/guest";
 import style from "./TableR.module.css";
+
+interface MyComponentProps {
+  index: number;
+  item: any;
+}
 
 const Table = () => {
   return (
@@ -15,27 +21,26 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          <TableData />
-          <TableData />
-          <TableData />
-          <TableData />
-          <TableData />
-          <TableData />
+          {
+            data.map((item,index)=>{
+              return <TableData key={index} item={item} index={index+1}/>
+            })
+          }
         </tbody>
       </table>
     </div>
   );
 };
 
-function TableData() {
+const TableData:React.FC<MyComponentProps>=({index,item})=> {
   return (
     <tr className={style.tableData}>
-      <td>#5644</td>
-      <td>Alexander</td>
-      <td>501</td>
-      <td>PKR 18000</td>
-      <td>$/PKR</td>
-      <td>PAID</td>
+      <td>{index}</td>
+      <td>{item.name}</td>
+      <td>{item.roomNo}</td>
+      <td>{item.totalAmount}</td>
+      <td>{item.currency}</td>
+      <td>{item.status}</td>
     </tr>
   );
 }
