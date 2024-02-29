@@ -22,7 +22,7 @@ const SideNav = () => {
   useEffect(() => {
     setSelectedPage(window.location.pathname.substring(9));
     window.addEventListener("resize", isMobileDevice);
-
+    isMobileDevice();
     return () => removeEventListener("resize", isMobileDevice);
   }, []);
 
