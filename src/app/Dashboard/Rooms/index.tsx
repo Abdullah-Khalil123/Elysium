@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./Rooms.module.css";
 import nextConfig from "../../../../next.config";
+import Image from "next/image";
 
 const RoomsDashBoard = () => {
   return (
@@ -22,7 +23,12 @@ const RoomsItem = () => {
       <div className={style.RoomItemButtonflex}>
         <p>2 Deals</p>
         <button>
-          <img src={`${nextConfig.basePath}/ellipises.svg`} alt="" />
+          <Image
+            width={10}
+            height={10}
+            src={`${nextConfig.basePath}/ellipises.svg`}
+            alt=""
+          />
         </button>
       </div>
       <h5>Single Bed</h5>

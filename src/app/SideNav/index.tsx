@@ -52,7 +52,7 @@ const SideNav = () => {
     border: "none",
     position: "absolute",
     left: "30px",
-    top: "20px",
+    top: "10px",
   };
 
   const list = [
@@ -129,4 +129,3 @@ const SideNav = () => {
 };
 
 export default SideNav;
-

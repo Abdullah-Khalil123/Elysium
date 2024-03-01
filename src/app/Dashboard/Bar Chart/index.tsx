@@ -87,10 +87,22 @@ const LineData = {
 const LineOptions = {
   responsive: true,
   maintainAspectRatio: true,
+  scales: {
+    x: {
+      grid: {
+        display: false,
+      },
+    },
+    y: {
+      grid: {
+        display: false,
+      },
+    },
+  },
   plugins: {
     title: {
       display: true,
-      text: "Chart.js Line Chart",
+      text: "Daily Rent",
     },
   },
 };
