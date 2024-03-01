@@ -2,7 +2,7 @@
 const nextConfig = {
   output: "export",
   basePath: "/Elysium",
-  // basePath:'',
+  // basePath:' ',
 };
 
 export default nextConfig;
