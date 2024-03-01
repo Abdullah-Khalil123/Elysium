@@ -1,0 +1,22 @@
+.Expenses{
+    padding: 0px 10px;
+}
+
+
+.roomSelectors {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.roomSelectors input[type = 'text'] {
+    background-image: url('/Elysium/search.svg');
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position: 10px;
+    box-sizing: border-box;
+    padding: 5px 10px 5px 40px;
+    border: 2px solid #bbbfc4;
+    border-radius: 8px;
+    outline: none;
+}

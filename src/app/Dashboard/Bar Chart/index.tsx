@@ -1,12 +1,14 @@
 "use client";
 import style from "./style.module.css";
-import { Bar } from "react-chartjs-2";
+import { Bar, Line } from "react-chartjs-2";
 import {
   Chart as Chartjs,
   CategoryScale,
   LinearScale,
   BarElement,
   Title,
+  LineElement,
+  PointElement,
   Tooltip,
   Legend,
 } from "chart.js";
@@ -14,6 +16,8 @@ Chartjs.register({
   CategoryScale,
   LinearScale,
   BarElement,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
   Legend,
@@ -49,7 +53,7 @@ const data = {
     },
   ],
 };
-const options = {
+const BarOptions = {
   responsive: true,
   maintainAspectRatio: true,
   scales: {
@@ -71,13 +75,34 @@ const options = {
     },
   },
 };
-
+const LineData = {
+  labels: ["1", "2", "3", "4", "5"],
+  datasets: [
+    {
+      label: "data",
+      data: [500, 500, 500, 500, 500],
+    },
+  ],
+};
+const LineOptions = {
+  responsive: true,
+  maintainAspectRatio: true,
+  plugins: {
+    title: {
+      display: true,
+      text: "Chart.js Line Chart",
+    },
+  },
+};
 const ChartComponent = () => {
   return (
     <div className={style.GraphArea}>
       <div className={style.BarGraph}>
         <p>Occupancy Statistics</p>
-        <Bar data={data} options={options} />
+        <Bar data={data} options={BarOptions} />
+      </div>
+      <div className={style.testing}>
+        <Line data={LineData} options={LineOptions} />
       </div>
     </div>
   );

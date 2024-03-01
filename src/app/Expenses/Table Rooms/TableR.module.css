@@ -1,0 +1,40 @@
+.tableGuest{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tableBorder{
+    border: solid 1px #bbbfc4;
+    border-radius: 10px;
+    overflow-x: scroll;
+}
+.tableBorder::-webkit-scrollbar{
+    height: 10px;
+}
+.tableBorder::-webkit-scrollbar-track {
+    border-bottom :solid 1px #bbbfc4;
+    border-radius: 10px;
+    background-color: #eef0f2;
+}
+.tableBorder::-webkit-scrollbar-thumb{
+    background-color: #1366d91c ;
+    border-radius: 1px;
+}
+
+.tableHeadings th{
+    border-bottom: solid 1px #bbbfc480;
+    text-align: start;
+    padding: 10px;
+    color: #667085;
+}
+
+.tableData td{
+    padding: 10px;
+    border-top: solid 1px #bbbfc4;
+    color: #5d6679;
+}
+
+.tableData td:first-child{
+    font-weight: bold;
+    color: #383c45;
+}

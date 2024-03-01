@@ -1,15 +1,26 @@
 .GraphArea{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     width: calc(100% - 20px);
     margin-bottom: 40px;
 }
 
+
 .BarGraph{
+
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+    transform: translateX(-20px);
+    min-height: 400px;
+    width: 100%;
+    max-width: 650px;
     min-width: 350px;
-    max-width: 45%;
     aspect-ratio: 2 / 1;
     background-color: white;
     border-radius: 10px;
-    padding: 10px;
+    padding: 25px 10px;
 }
 
 .BarGraph p{
@@ -17,8 +28,42 @@
     margin-top: 10px;
 }
 
+.testing{
+    
+    
+    margin-top: 20px;
+
+
+    min-height: 430px;
+    width: 100%;
+    max-width: 650px;
+    min-width: 350px;
+    aspect-ratio: 2 / 1;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
 @media screen and (max-width: 700px){
     .BarGraph {
         min-width: calc(100% - 20px);
+    }
+    
+    .BarGraph {
+        min-height: fit-content;
+    }
+
+    .testing {
+        min-height: fit-content;
+    }
+}
+
+@media screen and (max-width: 1900px) {
+    .GraphArea {
+        justify-content: center;
+    }
+
+    .BarGraph {
+        transform: translateX(0px);
     }
 }
