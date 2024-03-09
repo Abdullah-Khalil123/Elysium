@@ -1,12 +1,20 @@
+"use client";
 import style from "./Guest.module.css";
 import Table from "./Table Rooms";
+import Select from "react-select";
 
 const Guest = () => {
+  const options = [
+    { value: "501", label: "501" },
+    { value: "601", label: "601" },
+  ];
+
   return (
     <div className={style.Guest}>
       <div>
         <div className={style.roomSelectors}>
-          <input type="text" placeholder="Search by Room Number" />
+          <Select options={options} className={style.Select} />
+          {/* <input type="text" placeholder="Search by Room Number" /> */}
         </div>
         <Table />
       </div>
