@@ -2,6 +2,8 @@
 import style from "./Guest.module.css";
 import Table from "./Table Rooms";
 import Select from "react-select";
+import { DatePicker } from "antd";
+import { useState } from "react";
 
 const Guest = () => {
   const options = [
@@ -9,11 +11,14 @@ const Guest = () => {
     { value: "601", label: "601" },
   ];
 
+  const [dateNow, setdateNow] = useState(new Date());
+
   return (
     <div className={style.Guest}>
       <div>
         <div className={style.roomSelectors}>
           <Select options={options} className={style.Select} />
+          <DatePicker picker="month" />
           {/* <input type="text" placeholder="Search by Room Number" /> */}
         </div>
         <Table />

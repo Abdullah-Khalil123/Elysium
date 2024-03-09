@@ -8,7 +8,7 @@
     justify-content: flex-end;
     margin-bottom: 10px;
 }
-
+/* 
 .roomSelectors input[type = 'text'] {
     background-image: url('/Elysium/search.svg');
     background-repeat: no-repeat;
@@ -19,4 +19,9 @@
     border: 2px solid #bbbfc4;
     border-radius: 8px;
     outline: none;
+} */
+
+.Select {
+    width: 200px;
+    margin-right: 20px;
 }

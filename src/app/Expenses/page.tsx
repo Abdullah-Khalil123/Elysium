@@ -1,11 +1,20 @@
+"use client";
 import Table from "./Table Rooms";
 import style from "./page.module.css";
+import Select from "react-select";
+import { DatePicker } from "antd";
 
 const Expenses = () => {
+  const options = [
+    { value: "501", label: "501" },
+    { value: "601", label: "601" },
+  ];
+
   return (
     <div className={style.Expenses}>
       <div className={style.roomSelectors}>
-        <input type="text" placeholder="Search by Room Number" />
+        <Select options={options} className={style.Select} />
+        <DatePicker picker="month" />
       </div>
       <Table />
     </div>
