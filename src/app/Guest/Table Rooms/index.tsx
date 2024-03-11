@@ -1,12 +1,14 @@
-import { data } from "@/Data/guest";
 import style from "./TableR.module.css";
 
-interface MyComponentProps {
-  index: number;
-  item: any;
+interface ExpenseDataType {
+  rentID: number;
+  roomID: number;
+  RoomNum: number;
+  amount: number;
+  currency: number;
+  Date: string;
 }
-
-const Table = () => {
+const Table = (props: { ExpanseData: ExpenseDataType[] }) => {
   return (
     <div className={style.tableBorder}>
       <table className={style.tableGuest}>
@@ -17,28 +19,26 @@ const Table = () => {
             <th>Room Number</th>
             <th>Total Amount</th>
             <th>Currency</th>
-            <th>Status</th>
           </tr>
         </thead>
         <tbody>
-          {data.map((item, index) => {
-            return <TableData key={index} item={item} index={index + 1} />;
-          })}
+          {props.ExpanseData.map((item, index) => (
+            <TableData key={index} item={item} index={index + 1} />
+          ))}
         </tbody>
       </table>
     </div>
   );
 };
 
-const TableData: React.FC<MyComponentProps> = ({ index, item }) => {
+const TableData = (props: { index: number; item: ExpenseDataType }) => {
   return (
     <tr className={style.tableData}>
-      <td>{index}</td>
-      <td>{item.name}</td>
-      <td>{item.roomNo}</td>
-      <td>{item.totalAmount}</td>
-      <td>{item.currency}</td>
-      <td>{item.status}</td>
+      <td>{props.index}</td>
+      <td>{}</td>
+      <td>{props.item.RoomNum}</td>
+      <td>{props.item.amount}</td>
+      <td>{props.item.currency == 0 ? "PKR" : "USD"}</td>
     </tr>
   );
 };

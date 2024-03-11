@@ -6,15 +6,20 @@ import { DatePicker } from "antd";
 
 const Expenses = () => {
   const options = [
-    { value: "501", label: "501" },
-    { value: "601", label: "601" },
+    { value: 501, label: "501" },
+    { value: 601, label: "601" },
   ];
 
   return (
     <div className={style.Expenses}>
       <div className={style.roomSelectors}>
-        <Select options={options} className={style.Select} />
-        <DatePicker picker="month" />
+        <Select
+          options={options}
+          className={style.Select}
+          defaultValue={options[0]}
+          onChange={() => {}}
+        />
+        <DatePicker picker="month" onChange={() => {}} />
       </div>
       <Table />
     </div>

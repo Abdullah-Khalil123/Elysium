@@ -4,24 +4,70 @@ import Table from "./Table Rooms";
 import Select from "react-select";
 import { DatePicker } from "antd";
 import { useState } from "react";
-
+import moment from "moment";
+interface ExpenseDataType {
+  rentID: number;
+  roomID: number;
+  RoomNum: number;
+  amount: number;
+  currency: number;
+  Date: string;
+}
 const Guest = () => {
-  const options = [
-    { value: "501", label: "501" },
-    { value: "601", label: "601" },
-  ];
+  const [ExpenseData, setExpenseData] = useState<ExpenseDataType[]>([]);
+  async function getExpenses(room: any, today: moment.Moment) {
+    const uri = `http://localhost:3001/api/Rents?room=${room}&month=${
+      today.month() + 1
+    }&year=${today.year()}`;
+    console.log(uri);
+    const response = await fetch(uri, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-  const [dateNow, setdateNow] = useState(new Date());
+    const data = await response.json();
+    setExpenseData(data);
+    console.log(ExpenseData);
+  }
+
+  const Roomoptions = [
+    { value: 1, label: "501" },
+    { value: 2, label: "601" },
+  ];
+  const [today, settoday] = useState(moment());
+  const [roomSelected, setroomSelected] = useState<number>();
+  function handleRoomChange(room: any) {
+    if (room != null) {
+      setroomSelected(room.value);
+      getExpenses(room.value, today);
+    }
+  }
+  function handleMonthChange(month: any) {
+    if (month != null) {
+      settoday(month);
+      getExpenses(roomSelected, month);
+    }
+  }
 
   return (
     <div className={style.Guest}>
       <div>
         <div className={style.roomSelectors}>
-          <Select options={options} className={style.Select} />
-          <DatePicker picker="month" />
-          {/* <input type="text" placeholder="Search by Room Number" /> */}
+          <Select
+            options={Roomoptions}
+            className={style.Select}
+            defaultValue={Roomoptions[0]}
+            onChange={handleRoomChange}
+          />
+          <DatePicker
+            picker="month"
+            defaultValue={today}
+            onChange={handleMonthChange}
+          />
         </div>
-        <Table />
+        <Table ExpanseData={ExpenseData} />
       </div>
       <div className={style.GuestTableSelectors}>
         <button>Previous</button>
