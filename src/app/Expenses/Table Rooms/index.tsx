@@ -1,12 +1,12 @@
-import { ExpenseData } from "@/Data/expense";
 import style from "./TableR.module.css";
 
-interface MyComponentProps {
-  index: number;
-  item: any;
+interface ExpenseDataType {
+  Date: string;
+  RoomID: number;
+  ExpenseItem: string;
+  ExpenseAmount: number;
 }
-
-const Table = () => {
+const Table = (props: { expenseData: ExpenseDataType[] }) => {
   return (
     <div className={style.tableBorder}>
       <table className={style.tableGuest}>
@@ -18,8 +18,8 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {ExpenseData.map((item, index) => {
-            return <TableData key={index} item={item} index={index + 1} />;
+          {props.expenseData.map((item, index) => {
+            return <TableData key={index} index={index + 1} item={item} />;
           })}
         </tbody>
       </table>
@@ -27,12 +27,12 @@ const Table = () => {
   );
 };
 
-const TableData: React.FC<MyComponentProps> = ({ index, item }) => {
+const TableData = ({ index, item }: { index: number; item: any }) => {
   return (
     <tr className={style.tableData}>
       <td>{index}</td>
-      <td>{item.expense_name}</td>
-      <td>{item.expense_amount}</td>
+      <td>{item.ExpenseItem}</td>
+      <td>{item.ExpenseAmount}</td>
     </tr>
   );
 };

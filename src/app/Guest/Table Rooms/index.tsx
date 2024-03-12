@@ -15,8 +15,7 @@ const Table = (props: { ExpanseData: ExpenseDataType[] }) => {
         <thead>
           <tr className={style.tableHeadings}>
             <th>Reservation ID</th>
-            <th>Name</th>
-            <th>Room Number</th>
+            <th>Date</th>
             <th>Total Amount</th>
             <th>Currency</th>
           </tr>
@@ -32,11 +31,18 @@ const Table = (props: { ExpanseData: ExpenseDataType[] }) => {
 };
 
 const TableData = (props: { index: number; item: ExpenseDataType }) => {
+  const date = new Date(props.item.Date);
+
+  const formattedDate = `${date.getDate().toString().padStart(2, "0")}-${(
+    date.getMonth() + 1
+  )
+    .toString()
+    .padStart(2, "0")}-${date.getFullYear()}`;
+
   return (
     <tr className={style.tableData}>
       <td>{props.index}</td>
-      <td>{}</td>
-      <td>{props.item.RoomNum}</td>
+      <td>{formattedDate}</td>
       <td>{props.item.amount}</td>
       <td>{props.item.currency == 0 ? "PKR" : "USD"}</td>
     </tr>
