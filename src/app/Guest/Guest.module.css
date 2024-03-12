@@ -1,6 +1,6 @@
 .Guest{
     padding: 0px 10px;
-    height: calc(100vh - 125px);
+    height: calc(100vh - 110px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -72,7 +72,7 @@
 }
 @media screen and (max-width: 800px){
     .Guest {
-        height: 100%;
+        height: calc(100vh - 150px);
     }
 }
 /* .roomSelectors input[type = 'text'] {
