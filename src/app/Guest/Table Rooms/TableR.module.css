@@ -4,7 +4,7 @@
 }
 
 .tableBorder{
-    height: 70vh;
+    max-height: 70vh;
     border: solid 1px #bbbfc4;
     border-radius: 10px;
     overflow-x: scroll;
