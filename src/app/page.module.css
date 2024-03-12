@@ -1,7 +1,7 @@
 .ChildernHolder{
     height: calc(100dvh - 100px);
     overflow-y: scroll;
-
+    padding-left: 10px;
 }
 
 .ChildernHolder::-webkit-scrollbar {
