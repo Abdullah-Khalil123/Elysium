@@ -36,12 +36,13 @@
 }
 .pageGuestSelectors{
    display: flex; 
-   justify-content: space-between;
+   justify-content: center;
    align-items: center;
    width: 200px;
 }
 
 .pageGuestSelectors p{
+    margin: 0px 5px;
     color: #858d9d;
     width: 20px;
     height: 20px;
@@ -69,7 +70,11 @@
     width: 200px;
     margin-right: 20px;
 }
-
+@media screen and (max-width: 800px){
+    .Guest {
+        height: 100%;
+    }
+}
 /* .roomSelectors input[type = 'text'] {
     background-image: url('/Elysium/search.svg');
     background-repeat: no-repeat;

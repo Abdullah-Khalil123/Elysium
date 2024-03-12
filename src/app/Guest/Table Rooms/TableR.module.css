@@ -38,3 +38,13 @@
     font-weight: bold;
     color: #383c45;
 }
+
+@media screen and (max-width: 700px){
+
+    .tableData td:nth-child(1) {
+        display: none;
+    }
+    .tableHeadings th:first-child {
+        display: none;
+    }
+}
