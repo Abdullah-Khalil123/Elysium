@@ -79,6 +79,7 @@ const Guest = () => {
           <DatePicker
             picker="month"
             defaultValue={today}
+            value={today}
             onChange={handleMonthChange}
           />
         </div>
