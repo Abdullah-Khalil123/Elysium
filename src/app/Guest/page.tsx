@@ -50,10 +50,15 @@ const Guest = () => {
       getRents(roomSelected, month);
     }
   }
-
   useEffect(() => {
     getRents(Roomoptions[0].value, today);
   }, []);
+
+  function handleNext() {
+    settoday(moment(today).add(1, "month"));
+    getRents(roomSelected, today);
+    console.log(today);
+  }
 
   return (
     <div className={style.Guest}>
@@ -79,7 +84,7 @@ const Guest = () => {
           <p>1</p>
           <p>2</p>
         </div>
-        <button>Next</button>
+        <button onClick={handleNext}>Next</button>
       </div>
     </div>
   );
