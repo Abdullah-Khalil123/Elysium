@@ -35,8 +35,8 @@ const Guest = () => {
   }
 
   const Roomoptions = [
-    { value: 1, label: "501" },
-    { value: 2, label: "601" },
+    { value: 0, label: "501" },
+    { value: 1, label: "601" },
   ];
   function handleRoomChange(room: any) {
     if (room != null) {
