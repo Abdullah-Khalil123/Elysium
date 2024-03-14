@@ -51,6 +51,7 @@ const Guest = () => {
     }
   }
   useEffect(() => {
+    setroomSelected(Roomoptions[0].value);
     getRents(Roomoptions[0].value, today);
   }, []);
 
