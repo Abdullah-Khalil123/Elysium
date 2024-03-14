@@ -55,12 +55,14 @@ const Guest = () => {
   }, []);
 
   function handleNext() {
-    settoday(moment(today).add(1, "month"));
-    getRents(roomSelected, today);
+    const nextMonth = moment(today).add(1, "month");
+    settoday(nextMonth);
+    getRents(roomSelected, nextMonth);
   }
   function handlePrev() {
-    settoday(moment(today).add(-1, "month"));
-    getRents(roomSelected, today);
+    const nextMonth = moment(today).add(-1, "month");
+    settoday(nextMonth);
+    getRents(roomSelected, nextMonth);
   }
 
   return (
@@ -82,7 +84,7 @@ const Guest = () => {
         <Table ExpanseData={RentDataType} />
       </div>
       <div className={style.GuestTableSelectors}>
-        <button>Previous</button>
+        <button onClick={handlePrev}>Previous</button>
         <div className={style.pageGuestSelectors}>
           <p>1</p>
           <p>2</p>
