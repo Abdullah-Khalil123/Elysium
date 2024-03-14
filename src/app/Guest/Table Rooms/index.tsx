@@ -44,7 +44,7 @@ const TableData = (props: { index: number; item: ExpenseDataType }) => {
       <td>{props.index}</td>
       <td>{formattedDate}</td>
       <td>{props.item.amount}</td>
-      <td>{props.item.currency == 0 ? "PKR" : "USD"}</td>
+      <td>{props.item.currency == 0 ? "USD" : "PKR"}</td>
     </tr>
   );
 };
