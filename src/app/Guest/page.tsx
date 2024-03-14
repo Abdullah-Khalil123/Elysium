@@ -57,7 +57,10 @@ const Guest = () => {
   function handleNext() {
     settoday(moment(today).add(1, "month"));
     getRents(roomSelected, today);
-    console.log(today);
+  }
+  function handlePrev() {
+    settoday(moment(today).add(-1, "month"));
+    getRents(roomSelected, today);
   }
 
   return (
