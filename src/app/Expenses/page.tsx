@@ -51,7 +51,7 @@ const Expenses = () => {
   }
   useEffect(() => {
     getExpenses(RoomOptions[0].value, today);
-  }, []);
+  }, [1]);
   return (
     <div className={style.Expenses}>
       <div className={style.roomSelectors}>

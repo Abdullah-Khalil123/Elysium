@@ -39,11 +39,9 @@ const Header = () => {
         {daysOfWeek[date.getDay()]}, {months[month] + " " + day + " " + year}
       </p>
       {/* <button>Create Booking</button> */}
-      <Link
-        className={style.buttonCreate}
-        href={"/Create_Booking"}
-        children={<p>Create Booking</p>}
-      />
+      <Link className={style.buttonCreate} href={"/Create_Booking"}>
+        <p>Create Booking</p>
+      </Link>
     </div>
   );
 };

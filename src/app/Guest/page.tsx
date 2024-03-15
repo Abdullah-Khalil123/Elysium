@@ -53,7 +53,7 @@ const Guest = () => {
   useEffect(() => {
     setroomSelected(Roomoptions[0].value);
     getRents(Roomoptions[0].value, today);
-  }, []);
+  }, [1]);
 
   function handleNext() {
     const nextMonth = moment(today).add(1, "month");
