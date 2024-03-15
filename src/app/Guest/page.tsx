@@ -1,8 +1,8 @@
 "use client";
 import style from "./Guest.module.css";
 import Table from "./Table Rooms";
-import Select from "react-select";
-import { DatePicker } from "antd";
+import Select from "antd/es/select";
+import DatePicker from "antd/es/date-picker";
 import { useEffect, useState } from "react";
 import moment from "moment";
 interface RentDataTypeType {
