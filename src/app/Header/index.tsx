@@ -1,4 +1,5 @@
 import style from "./Header.module.css";
+import Link from "next/link";
 
 const months = [
   "January",
@@ -37,7 +38,12 @@ const Header = () => {
       <p>
         {daysOfWeek[date.getDay()]}, {months[month] + " " + day + " " + year}
       </p>
-      <button>Create Booking</button>
+      {/* <button>Create Booking</button> */}
+      <Link
+        className={style.buttonCreate}
+        href={"/Create_Booking"}
+        children={<p>Create Booking</p>}
+      />
     </div>
   );
 };
