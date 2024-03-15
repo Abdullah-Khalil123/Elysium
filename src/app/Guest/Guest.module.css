@@ -71,7 +71,9 @@
     margin-right: 20px;
 }
 @media screen and (max-width: 800px){
-   
+   .roomSelectors {
+    justify-content: space-between;
+   }
 }
 /* .roomSelectors input[type = 'text'] {
     background-image: url('/Elysium/search.svg');
