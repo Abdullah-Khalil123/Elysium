@@ -21,7 +21,7 @@ const Expenses = () => {
   ];
 
   async function getExpenses(room: any, today: moment.Moment) {
-    const uri = `https://fantastic-cyan-loincloth.cyclic.app/api/Expenses?room=${room}&month=${
+    const uri = `https://muddy-jewelry-yak.cyclic.app/api/Expenses?room=${room}&month=${
       today.month() + 1
     }&year=${today.year()}`;
     console.log(uri);

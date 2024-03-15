@@ -18,7 +18,7 @@ const Guest = () => {
   const [RentDataType, setRentDataType] = useState<RentDataTypeType[]>([]);
   const [today, settoday] = useState(moment());
   async function getRents(room: any, today: moment.Moment) {
-    const uri = `https://fantastic-cyan-loincloth.cyclic.app/api/Rents?room=${room}&month=${
+    const uri = `https://muddy-jewelry-yak.cyclic.app/api/Rents?room=${room}&month=${
       today.month() + 1
     }&year=${today.year()}`;
     console.log(uri);
