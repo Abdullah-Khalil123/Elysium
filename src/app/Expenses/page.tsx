@@ -39,8 +39,8 @@ const Expenses = () => {
 
   function handleRoomChange(room: any) {
     if (room != null) {
-      setroomSelected(room.value);
-      getExpenses(room.value, today);
+      setroomSelected(room);
+      getExpenses(room, today);
     }
   }
   function handleMonthChange(month: any) {

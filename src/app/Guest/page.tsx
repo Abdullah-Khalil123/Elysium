@@ -40,8 +40,8 @@ const Guest = () => {
   ];
   function handleRoomChange(room: any) {
     if (room != null) {
-      setroomSelected(room.value);
-      getRents(room.value, today);
+      setroomSelected(room);
+      getRents(room, today);
     }
   }
   function handleMonthChange(month: any) {
