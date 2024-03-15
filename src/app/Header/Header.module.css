@@ -6,7 +6,7 @@
     background-color: white;
     margin-bottom: 20px;
 }
-.Header p{
+.Header .dateText{
     color: #5d6679;
 }
 .Header .buttonCreate{
@@ -17,6 +17,8 @@
     background-color: #1570ef;
     text-decoration: none;
     cursor: pointer;
+
+
 }
 .Header .buttonCreate p{
     /* background-color: red; */
@@ -26,7 +28,7 @@
 }
 
 @media screen and (max-width:700px) {
-    .Header p{
+    .Header .dateText{
         font-size: 12px;
         width: 100px;
         text-align: center;

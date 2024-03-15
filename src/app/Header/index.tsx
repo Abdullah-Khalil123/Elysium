@@ -35,7 +35,7 @@ const Header = () => {
   return (
     <div className={style.Header}>
       <div></div>
-      <p>
+      <p className={style.dateText}>
         {daysOfWeek[date.getDay()]}, {months[month] + " " + day + " " + year}
       </p>
       {/* <button>Create Booking</button> */}
