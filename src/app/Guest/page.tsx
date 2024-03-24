@@ -4,6 +4,7 @@ import Table from "./Table Rooms";
 import Select from "antd/es/select";
 import DatePicker from "antd/es/date-picker";
 import { useEffect, useState } from "react";
+import URI from "../../Data/API";
 import moment from "moment";
 interface RentDataTypeType {
   rentID: number;
@@ -18,10 +19,12 @@ const Guest = () => {
   const [RentDataType, setRentDataType] = useState<RentDataTypeType[]>([]);
   const [today, settoday] = useState(moment());
   async function getRents(room: any, today: moment.Moment) {
-    const uri = `https://muddy-jewelry-yak.cyclic.app/api/Rents?room=${room}&month=${
+    const uri = `${URI}/api/Rents?room=${room}&month=${
       today.month() + 1
     }&year=${today.year()}`;
-    console.log(uri);
+
+    // console.log(uri);
+
     const response = await fetch(uri, {
       method: "GET",
       headers: {
@@ -31,7 +34,7 @@ const Guest = () => {
 
     const data = await response.json();
     setRentDataType(data);
-    console.log(RentDataType);
+    // console.log(RentDataType);
   }
 
   const Roomoptions = [

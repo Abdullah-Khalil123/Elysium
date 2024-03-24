@@ -4,6 +4,7 @@ import style from "./page.module.css";
 import Select from "antd/es/select";
 import DatePicker from "antd/es/date-picker";
 import { useEffect, useState } from "react";
+import URI from "../../Data/API";
 import moment from "moment";
 interface ExpenseDataType {
   Date: string;
@@ -16,15 +17,15 @@ const Expenses = () => {
   const [roomSelected, setroomSelected] = useState<number>();
   const [ExpenseData, setExpenseData] = useState<ExpenseDataType[]>([]);
   const RoomOptions = [
-    { value: 1, label: "501" },
-    { value: 2, label: "601" },
+    { value: 0, label: "501" },
+    { value: 1, label: "601" },
   ];
 
   async function getExpenses(room: any, today: moment.Moment) {
-    const uri = `https://muddy-jewelry-yak.cyclic.app/api/Expenses?room=${room}&month=${
+    const uri = `${URI}/api/Expenses?room=${room}&month=${
       today.month() + 1
     }&year=${today.year()}`;
-    console.log(uri);
+    // console.log(uri);
     const response = await fetch(uri, {
       method: "GET",
       headers: {
