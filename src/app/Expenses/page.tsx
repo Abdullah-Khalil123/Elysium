@@ -35,7 +35,7 @@ const Expenses = () => {
 
     const data = await response.json();
     setExpenseData(data);
-    console.log(ExpenseData);
+    // console.log(ExpenseData);
   }
 
   function handleRoomChange(room: any) {

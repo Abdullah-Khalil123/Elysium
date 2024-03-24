@@ -59,7 +59,7 @@
     min-width: 100px;
 }
 .collapsed{
-    width: 70px;
+    min-width: 70px;
 }
 .collapsed .ahref li{
     justify-content: center;
