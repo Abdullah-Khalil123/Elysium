@@ -1,75 +1,37 @@
 .GraphArea{
+    /* background-color: red; */
+    width: calc(100% - 20px);
+    /* height: 200px; */
+    border-radius: 10px;
+    margin-top: 20px;
+    /* margin-left:20px; */
+    /* margin-top: 20px; */
+
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
-    width: calc(100% - 20px);
-    margin-bottom: 40px;
 }
-
-
-.BarGraph{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-right: 20px;
-    margin-left: 20px;
-    margin-top: 20px;
-    transform: translateX(-20px);
-    min-height: 400px;
-    width: 100%;
-    max-width: 650px;
-    min-width: 350px;
+.BarGraph, .testing {
+    min-height: 250px;
+    padding: 30px 10px;
     aspect-ratio: 2 / 1;
+    width: calc(50% - 40px);
+    min-width: 400px;
+    height: 100%;
     background-color: white;
     border-radius: 10px;
-    padding: 25px 10px;
-
-    z-index: 1;
 }
 
-.BarGraph p{
-    font-weight: 500;
-    margin-top: 10px;
-}
-
-.testing{
-    
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    margin-top: 20px;
-    min-height: 430px;
-    width: 100%;
-    max-width: 650px;
-    min-width: 350px;
-    aspect-ratio: 2 / 1;
-    background-color: white;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-@media screen and (max-width: 700px){
-    .BarGraph {
-        min-width: calc(100% - 20px);
-    }
-    
-    .BarGraph {
-        min-height: fit-content;
-    }
-
-    .testing {
-        min-height: fit-content;
-    }
-}
-
-@media screen and (max-width: 1900px) {
+@media screen and (max-width: 900px){
     .GraphArea {
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
     }
-
-    .BarGraph {
-        transform: translateX(0px);
+    .BarGraph, .testing {
+        width: calc(100% - 20px);
+        min-width: 300px;
+        padding: 40px 10px;
+    }
+    .testing {
+        margin-top: 20px;
     }
 }
