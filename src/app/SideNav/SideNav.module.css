@@ -1,5 +1,6 @@
 .SideNav{
     width: 370px;
+    min-width: 230px;
     background-color: white;
     overflow: hidden;
     transition: 0.2s;
@@ -60,6 +61,7 @@
 }
 .collapsed{
     min-width: 70px;
+    max-width: 70px;
 }
 .collapsed .ahref li{
     justify-content: center;
