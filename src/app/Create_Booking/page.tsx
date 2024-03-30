@@ -4,7 +4,7 @@ import AddExpense from "./AddExpense";
 import AddBooking from "./AddBooking";
 import { useState } from "react";
 
-const createBooking = () => {
+const CreateBooking = () => {
   const [showBookingDialoge, setshowBookingDialoge] = useState(false);
   const [showExpenseDialoge, setshowExpenseDialoge] = useState(false);
   return (
@@ -38,8 +38,9 @@ const createBooking = () => {
       </button>
       {showBookingDialoge && <AddBooking />}
       {showExpenseDialoge && <AddExpense />}
+      {}
     </div>
   );
 };
 
-export default createBooking;
+export default CreateBooking;
