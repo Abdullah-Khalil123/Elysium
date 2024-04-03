@@ -12,7 +12,11 @@
     flex-direction: column;
     z-index: 6;
 }
-
+.TopicNote {
+    color: red;
+    font-size: 12px;
+    text-transform: uppercase;
+}
 .addExpense p{
     font-size: 20px;
     font-weight: 500;
@@ -58,3 +62,8 @@
 .buttons button:hover {
     background-color: #0067f6;
 }
+
+.Select {
+    margin: 5px 0;
+}
+

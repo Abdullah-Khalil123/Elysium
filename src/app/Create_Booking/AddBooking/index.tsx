@@ -34,7 +34,7 @@ const AddBooking = (props: {
       <div className={style.SelectDate}>
         <Select
           className={style.select}
-          defaultValue={{ value: 0, label: "501" }}
+          defaultValue={roomOptions[0]}
           options={roomOptions}
           onChange={(e: any) => {
             roomID = e;
