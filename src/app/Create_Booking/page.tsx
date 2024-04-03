@@ -36,8 +36,8 @@ const CreateBooking = () => {
       >
         Add Expense
       </button>
-      {showBookingDialoge && <AddBooking />}
-      {showExpenseDialoge && <AddExpense />}
+      {showBookingDialoge && <AddBooking showBooking={setshowBookingDialoge} />}
+      {showExpenseDialoge && <AddExpense showExpense={setshowExpenseDialoge} />}
       {}
     </div>
   );

@@ -1,6 +1,9 @@
+import { Dispatch, SetStateAction } from "react";
 import style from "./addExpense.module.css";
 
-const addExpense = () => {
+const addExpense = (props: {
+  showExpense: Dispatch<SetStateAction<boolean>>;
+}) => {
   return (
     <div className={style.addExpense}>
       <p>Add Expense</p>
@@ -8,7 +11,7 @@ const addExpense = () => {
       <input type="text" placeholder="Amount" />
       <input type="month" />
       <div className={style.buttons}>
-        <button>Create Booking</button>
+        <button onClick={() => props.showExpense(false)}>Create Booking</button>
       </div>
     </div>
   );

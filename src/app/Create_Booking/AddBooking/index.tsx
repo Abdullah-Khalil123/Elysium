@@ -1,6 +1,9 @@
 import { Select } from "antd";
 import style from "./AddBooking.module.css";
-const AddBooking = () => {
+import { Dispatch, SetStateAction } from "react";
+const AddBooking = (props: {
+  showBooking: Dispatch<SetStateAction<boolean>>;
+}) => {
   return (
     <div className={style.booking}>
       <h4>Add New Booking</h4>
@@ -17,8 +20,13 @@ const AddBooking = () => {
       </div>
       <input className={style.inputAmount} placeholder="Amount" type="number" />
       <div className={style.buttons}>
-        {/* <button>Cancel</button> */}
-        <button>Create Booking</button>
+        <button
+          onClick={() => {
+            props.showBooking(false);
+          }}
+        >
+          Create Booking
+        </button>
       </div>
     </div>
   );
