@@ -19,8 +19,6 @@ const AddBooking = (props: {
       amount: amount,
     };
 
-    console.log(data);
-
     const URI = uri + "/api/addBooking";
     const response = await fetch(URI, {
       method: "POST",
