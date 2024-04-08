@@ -11,12 +11,14 @@ const AddBooking = (props: {
   ];
   var roomID: number = roomOptions[0].value,
     date: string | null,
-    amount: string | null;
+    amount: string | null,
+    currency: any = false;
   async function handleSubmitData() {
     const data = {
       roomid: roomID,
       date: date,
       amount: amount,
+      currency: currency,
     };
 
     const URI = uri + "/api/addBooking";
@@ -56,6 +58,22 @@ const AddBooking = (props: {
           amount = e.target.value;
         }}
       />
+      <div
+        style={{
+          height: "30px",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <p>USD</p>
+        <input
+          type="checkbox"
+          style={{ marginLeft: "10px" }}
+          onChange={(e) => {
+            currency = e.target.checked;
+          }}
+        />
+      </div>
       <div className={style.buttons}>
         <button
           onClick={() => {
