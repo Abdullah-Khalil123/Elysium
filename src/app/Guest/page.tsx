@@ -4,9 +4,10 @@ import Table from "./Table Rooms";
 import Select from "antd/es/select";
 import DatePicker from "antd/es/date-picker";
 import { useEffect, useState } from "react";
+import { fillMissingDates, generateDates } from "./dataHandling";
 import URI from "../../Data/API";
 import moment from "moment";
-interface RentDataTypeType {
+interface RentDataType {
   rentID: number;
   roomID: number;
   RoomNum: number;
@@ -16,7 +17,7 @@ interface RentDataTypeType {
 }
 const Guest = () => {
   const [roomSelected, setroomSelected] = useState<number>();
-  const [RentDataType, setRentDataType] = useState<RentDataTypeType[]>([]);
+  const [RentData, setRentData] = useState<RentDataType[]>([]);
   const [today, settoday] = useState(moment());
   async function getRents(room: any, today: moment.Moment) {
     const uri = `${URI}/api/Rents?room=${room}&month=${
@@ -33,8 +34,20 @@ const Guest = () => {
     });
 
     const data = await response.json();
-    setRentDataType(data);
-    // console.log(RentDataType);
+    setRentData(data);
+    /////////////////////////////
+
+    // console.log(data[0]["Date"]);
+    // if (data.length > 1) {
+    //   const dates = generateDates(
+    //     data[0]["Date"],
+    //     data[data.length - 1]["Date"]
+    //   );
+    //   const rentData = fillMissingDates(data, dates);
+    //   console.log(rentData);
+    //   setRentData(rentData);
+    // }
+    // console.log(data[data.length - 1]["Date"]);
   }
 
   const Roomoptions = [
@@ -86,7 +99,7 @@ const Guest = () => {
             onChange={handleMonthChange}
           />
         </div>
-        <Table ExpanseData={RentDataType} />
+        <Table ExpanseData={RentData} />
       </div>
       <div className={style.GuestTableSelectors}>
         <button onClick={handlePrev}>Previous</button>
