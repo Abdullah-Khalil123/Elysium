@@ -62,7 +62,7 @@ const Guest = () => {
   useEffect(() => {
     setroomSelected(Roomoptions[0].value);
     getRents(Roomoptions[0].value, today);
-  }, [1]);
+  }, []);
 
   function handleNext() {
     const nextMonth = moment(today).add(1, "month");
@@ -87,8 +87,8 @@ const Guest = () => {
           />
           <DatePicker
             picker="month"
-            defaultValue={today}
             value={today}
+            defaultValue={today}
             onChange={handleMonthChange}
           />
         </div>
@@ -101,8 +101,8 @@ const Guest = () => {
       <div className={style.GuestTableSelectors}>
         <button onClick={handlePrev}>Previous</button>
         <div className={style.pageGuestSelectors}>
-          <p>1</p>
-          <p>2</p>
+          {/* <p>1</p>
+          <p>2</p> */}
         </div>
         <button onClick={handleNext}>Next</button>
       </div>
