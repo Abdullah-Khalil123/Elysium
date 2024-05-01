@@ -1,4 +1,6 @@
 import style from "./TableR.module.css";
+import Image from "next/image";
+import nextConfig from "../../../../next.config";
 
 interface ExpenseDataType {
   rentID: number;
@@ -51,6 +53,15 @@ const TableData = (props: { index: number; item: ExpenseDataType }) => {
           {props.item.currency == 0 ? "$ " : "PKR "}
           {props.item.amount}
         </p>
+      </td>
+      <td>
+        <Image
+          className={style.trash}
+          src={nextConfig.basePath + "/trash.svg"}
+          width={25}
+          height={25}
+          alt={""}
+        />
       </td>
       {/* <td>
         <p className={props.item.currency == 0 ? style.usdback : style.pkrback}>

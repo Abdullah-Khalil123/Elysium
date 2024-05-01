@@ -1,10 +1,10 @@
 "use client";
+// import { fillMissingDates, generateDates } from "./dataHandling";
 import style from "./Guest.module.css";
 import Table from "./Table Rooms";
 import Select from "antd/es/select";
 import DatePicker from "antd/es/date-picker";
 import { useEffect, useState } from "react";
-// import { fillMissingDates, generateDates } from "./dataHandling";
 import Loading from "../Loader";
 import URI from "../../Data/API";
 import moment from "moment";
@@ -66,7 +66,7 @@ const Guest = () => {
 
   function handleNext() {
     const nextMonth = moment(today).add(1, "month");
-    settoday(nextMonth);
+    settoday(moment(today).add(1, "month"));
     getRents(roomSelected, nextMonth);
   }
   function handlePrev() {
