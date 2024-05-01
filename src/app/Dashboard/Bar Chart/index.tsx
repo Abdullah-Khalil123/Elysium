@@ -1,6 +1,8 @@
 "use client";
 import style from "./style.module.css";
 import { Bar, Line } from "react-chartjs-2";
+import URI from "@/Data/API";
+
 import {
   Chart as Chartjs,
   CategoryScale,
@@ -12,6 +14,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { useEffect, useState } from "react";
 Chartjs.register({
   CategoryScale,
   LinearScale,
@@ -107,6 +110,26 @@ const LineOptions = {
   },
 };
 const ChartComponent = () => {
+  const [OccData, setOccData] = useState(null);
+
+  async function getOccRate() {
+    const uri = `${URI}/api/getOccupentRate`;
+    const response = await fetch(uri, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ TODO: null }),
+    });
+
+    const data = await response.json();
+    setOccData(data);
+  }
+  useEffect(() => {
+    getOccRate();
+    console.log(OccData);
+  });
+
   return (
     <div className={style.GraphArea}>
       <div className={style.BarGraph}>
