@@ -41,6 +41,24 @@
     color: #383c45;
 }
 
+.usdback p{
+    background-color: #FFA447;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    padding: 2px 0px;
+    width: 80px;
+}
+
+
+.pkrback p{
+    background-color: #9BCF53;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    padding: 2px 0px;
+    width: 120px;
+}
 @media screen and (max-width: 700px){
 
     .tableBorder{

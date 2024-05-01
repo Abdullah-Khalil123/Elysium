@@ -17,7 +17,7 @@ const Table = (props: { ExpanseData: ExpenseDataType[] }) => {
             <th>Reservation ID</th>
             <th>Date</th>
             <th>Total Amount</th>
-            <th>Currency</th>
+            {/* <th>Currency</th> */}
           </tr>
         </thead>
         <tbody>
@@ -43,8 +43,17 @@ const TableData = (props: { index: number; item: ExpenseDataType }) => {
     <tr className={style.tableData}>
       <td>{props.index}</td>
       <td>{formattedDate}</td>
-      <td>{props.item.amount}</td>
-      <td>{props.item.currency == 0 ? "USD" : "PKR"}</td>
+      <td className={props.item.currency == 0 ? style.usdback : style.pkrback}>
+        <p>
+          {props.item.currency == 0 ? "$ " : "PKR "}
+          {props.item.amount}
+        </p>
+      </td>
+      {/* <td>
+        <p className={props.item.currency == 0 ? style.usdback : style.pkrback}>
+          {props.item.currency == 0 ? "USD" : "PKR"}
+        </p>
+      </td> */}
     </tr>
   );
 };
