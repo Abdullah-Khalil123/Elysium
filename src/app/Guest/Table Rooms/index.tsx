@@ -8,7 +8,10 @@ interface ExpenseDataType {
   currency: number;
   Date: string;
 }
-const Table = (props: { ExpanseData: ExpenseDataType[] }) => {
+const Table = (props: {
+  ExpanseData: ExpenseDataType[];
+  isLoading: boolean;
+}) => {
   return (
     <div className={style.tableBorder}>
       <table className={style.tableGuest}>

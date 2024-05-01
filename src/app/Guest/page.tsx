@@ -4,7 +4,8 @@ import Table from "./Table Rooms";
 import Select from "antd/es/select";
 import DatePicker from "antd/es/date-picker";
 import { useEffect, useState } from "react";
-import { fillMissingDates, generateDates } from "./dataHandling";
+// import { fillMissingDates, generateDates } from "./dataHandling";
+import Loading from "../Loader";
 import URI from "../../Data/API";
 import moment from "moment";
 interface RentDataType {
@@ -19,35 +20,27 @@ const Guest = () => {
   const [roomSelected, setroomSelected] = useState<number>();
   const [RentData, setRentData] = useState<RentDataType[]>([]);
   const [today, settoday] = useState(moment());
+  const [isLoading, setisLoading] = useState(true);
   async function getRents(room: any, today: moment.Moment) {
-    const uri = `${URI}/api/Rents?room=${room}&month=${
-      today.month() + 1
-    }&year=${today.year()}`;
+    try {
+      setisLoading(true);
+      const uri = `${URI}/api/Rents?room=${room}&month=${
+        today.month() + 1
+      }&year=${today.year()}`;
 
-    // console.log(uri);
-
-    const response = await fetch(uri, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    const data = await response.json();
-    setRentData(data);
-    /////////////////////////////
-
-    // console.log(data[0]["Date"]);
-    // if (data.length > 1) {
-    //   const dates = generateDates(
-    //     data[0]["Date"],
-    //     data[data.length - 1]["Date"]
-    //   );
-    //   const rentData = fillMissingDates(data, dates);
-    //   console.log(rentData);
-    //   setRentData(rentData);
-    // }
-    // console.log(data[data.length - 1]["Date"]);
+      const response = await fetch(uri, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      setRentData(data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setisLoading(false);
+    }
   }
 
   const Roomoptions = [
@@ -99,7 +92,11 @@ const Guest = () => {
             onChange={handleMonthChange}
           />
         </div>
-        <Table ExpanseData={RentData} />
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <Table ExpanseData={RentData} isLoading={false} />
+        )}
       </div>
       <div className={style.GuestTableSelectors}>
         <button onClick={handlePrev}>Previous</button>
