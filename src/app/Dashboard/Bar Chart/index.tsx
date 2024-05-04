@@ -7,6 +7,7 @@ import {
   CategoryScale,
   LinearScale,
   BarElement,
+  Filler,
   Title,
   LineElement,
   PointElement,
@@ -21,6 +22,7 @@ Chartjs.register({
   BarElement,
   PointElement,
   LineElement,
+  Filler,
   Title,
   Tooltip,
   Legend,
@@ -30,6 +32,11 @@ interface OccDataType {
   Date: string;
   OccupantRate: number;
   RoomID: number;
+}
+interface LineDataType {
+  roomID: number;
+  amount: number;
+  day: number;
 }
 const Monthlabels = [
   "January",
@@ -69,20 +76,6 @@ const BarOptions = {
   },
 };
 
-const daysInMonth = moment().daysInMonth();
-const daysArray = [];
-for (let i = 1; i <= daysInMonth; i++) {
-  daysArray.push(i);
-}
-const LineData = {
-  labels: daysArray,
-  datasets: [
-    {
-      label: "data",
-      data: [500, 600, null, 500, 500],
-    },
-  ],
-};
 const LineOptions = {
   responsive: true,
   maintainAspectRatio: true,
@@ -106,21 +99,27 @@ const LineOptions = {
   },
 };
 const ChartComponent = () => {
-  let dataValues = {
-    labels: Monthlabels,
-    datasets: [
-      {
-        label: "",
-        data: [],
-        backgroundColor: "",
-        borderRadius: 5,
-      },
-    ],
-  };
+  const daysInMonth = moment().daysInMonth();
+  const daysArray: number[] = [];
+  for (let i = 1; i <= daysInMonth; i++) {
+    daysArray.push(i);
+  }
   const [OccdataValues, setOccdataValues] = useState({
     labels: Monthlabels,
     datasets: [
       {
+        data: [],
+      },
+    ],
+  });
+  const [lineDataState, setlineDataState] = useState<{
+    labels: number[];
+    datasets: any;
+  }>({
+    labels: daysArray,
+    datasets: [
+      {
+        label: "501",
         data: [],
       },
     ],
@@ -168,18 +167,73 @@ const ChartComponent = () => {
     }
   }
 
+  function prepLineData(data: any, roomID: number) {
+    data = data.filter((item: any) => item["roomID"] == roomID);
+    const amountsByDay: any = [];
+    for (let day = 1; day <= 31; day++) {
+      amountsByDay[day] = null;
+    }
+    data.forEach((element: any) => {
+      amountsByDay[element["day"]] = element["amount"];
+    });
+
+    return amountsByDay;
+  }
+  async function getMonthlyFlow() {
+    try {
+      const uri = `${URI}/api/getMonthlyFlow`;
+
+      const response = await fetch(uri, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data: LineDataType[] = await response.json();
+      const dataValues = {
+        labels: daysArray,
+        datasets: [
+          {
+            label: "501",
+            borderColor: "#b6e9d1",
+            cubicInterpolationMode: "monotone",
+            spanGaps: true,
+            backgroundColor: "#b6e9d149",
+            fill: true,
+            data: prepLineData(data, 0),
+          },
+          {
+            label: "601",
+            borderColor: "#5f9bed",
+            cubicInterpolationMode: "monotone",
+            spanGaps: true,
+            backgroundColor: "#5f9aed38",
+            fill: true,
+            data: prepLineData(data, 1),
+          },
+        ],
+      };
+
+      setlineDataState(dataValues);
+    } catch (e) {
+      console.error("Error fetching occupancy data:", e);
+    }
+  }
   useEffect(() => {
     getOccRate();
+    getMonthlyFlow();
   }, []);
 
   return (
     <div className={style.GraphArea}>
       <div className={style.BarGraph}>
         <p>Occupancy Statistics</p>
-        {dataValues ? <Bar data={OccdataValues} options={BarOptions} /> : null}
+        {OccdataValues ? (
+          <Bar data={OccdataValues} options={BarOptions} />
+        ) : null}
       </div>
       <div className={style.testing}>
-        <Line data={LineData} options={LineOptions} />
+        <Line data={lineDataState} options={LineOptions} />
       </div>
     </div>
   );
