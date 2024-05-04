@@ -170,7 +170,7 @@ const ChartComponent = () => {
   function prepLineData(data: any, roomID: number) {
     data = data.filter((item: any) => item["roomID"] == roomID);
     const amountsByDay: any = [];
-    for (let day = 1; day <= 31; day++) {
+    for (let day = 1; day <= daysInMonth; day++) {
       amountsByDay[day] = null;
     }
     data.forEach((element: any) => {
