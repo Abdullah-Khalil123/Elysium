@@ -2,7 +2,6 @@
 import style from "./style.module.css";
 import { Bar, Line } from "react-chartjs-2";
 import URI from "@/Data/API";
-
 import {
   Chart as Chartjs,
   CategoryScale,
@@ -15,6 +14,7 @@ import {
   Legend,
 } from "chart.js";
 import { useEffect, useState } from "react";
+import moment from "moment";
 Chartjs.register({
   CategoryScale,
   LinearScale,
@@ -26,36 +26,26 @@ Chartjs.register({
   Legend,
 });
 
-const data = {
-  labels: [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "Novemeber",
-    "December",
-  ],
-  datasets: [
-    {
-      label: "501",
-      data: [65, 59, 80, 81, 56, 55, 40, 56, 23, 87, 23, 67, 23],
-      backgroundColor: "#5f9bed",
-      borderRadius: 5,
-    },
-    {
-      label: "601",
-      data: [65, 59, 80, 81, 56, 55, 40, 56, 23, 87, 23, 67, 23].reverse(),
-      backgroundColor: "#b6e9d1",
-      borderRadius: 5,
-    },
-  ],
-};
+interface OccDataType {
+  Date: string;
+  OccupantRate: number;
+  RoomID: number;
+}
+const Monthlabels = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "Novemeber",
+  "December",
+];
+
 const BarOptions = {
   responsive: true,
   maintainAspectRatio: true,
@@ -78,12 +68,18 @@ const BarOptions = {
     },
   },
 };
+
+const daysInMonth = moment().daysInMonth();
+const daysArray = [];
+for (let i = 1; i <= daysInMonth; i++) {
+  daysArray.push(i);
+}
 const LineData = {
-  labels: ["1", "2", "3", "4", "5"],
+  labels: daysArray,
   datasets: [
     {
       label: "data",
-      data: [500, 500, 500, 500, 500],
+      data: [500, 600, null, 500, 500],
     },
   ],
 };
@@ -110,31 +106,77 @@ const LineOptions = {
   },
 };
 const ChartComponent = () => {
-  const [OccData, setOccData] = useState(null);
+  let dataValues = {
+    labels: Monthlabels,
+    datasets: [
+      {
+        label: "",
+        data: [],
+        backgroundColor: "",
+        borderRadius: 5,
+      },
+    ],
+  };
+  const [OccdataValues, setOccdataValues] = useState({
+    labels: Monthlabels,
+    datasets: [
+      {
+        data: [],
+      },
+    ],
+  });
 
   async function getOccRate() {
-    const uri = `${URI}/api/getOccupentRate`;
-    const response = await fetch(uri, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ TODO: null }),
-    });
-
-    const data = await response.json();
-    setOccData(data);
+    try {
+      const uri = `${URI}/api/getOccupentRate`;
+      const response = await fetch(uri);
+      const data = await response.json();
+      const newData = {
+        labels: Monthlabels,
+        datasets: [
+          {
+            data: data
+              .map((e: OccDataType) => {
+                if (e["RoomID"].toString() === "0") {
+                  return e["OccupantRate"];
+                }
+                return null;
+              })
+              .filter((rate: any) => rate !== null),
+            backgroundColor: "#b6e9d1",
+            borderRadius: 5,
+            label: 501,
+          },
+          {
+            data: data
+              .map((e: OccDataType) => {
+                if (e["RoomID"].toString() === "1") {
+                  return e["OccupantRate"];
+                }
+                return null;
+              })
+              .filter((rate: any) => rate !== null),
+            backgroundColor: "#5f9bed",
+            borderRadius: 5,
+            label: 601,
+          },
+        ],
+      };
+      setOccdataValues(newData);
+    } catch (error) {
+      console.error("Error fetching occupancy data:", error);
+    }
   }
+
   useEffect(() => {
     getOccRate();
-    console.log(OccData);
-  });
+  }, []);
 
   return (
     <div className={style.GraphArea}>
       <div className={style.BarGraph}>
         <p>Occupancy Statistics</p>
-        <Bar data={data} options={BarOptions} />
+        {dataValues ? <Bar data={OccdataValues} options={BarOptions} /> : null}
       </div>
       <div className={style.testing}>
         <Line data={LineData} options={LineOptions} />
