@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import style from "./Header.module.css";
 import Link from "next/link";
 
@@ -31,13 +33,13 @@ const Header = () => {
   const year = date.getFullYear();
   const month = date.getMonth();
   const day = String(date.getDate()).padStart(2, "0");
-
+  const [dateState, setdateState] = useState(
+    `${daysOfWeek[date.getDay()]}, ${months[month] + " " + day + " " + year}`
+  );
   return (
     <div className={style.Header}>
       <div></div>
-      <p className={style.dateText}>
-        {daysOfWeek[date.getDay()]}, {months[month] + " " + day + " " + year}
-      </p>
+      <p className={style.dateText}>{dateState}</p>
       {/* <button>Create Booking</button> */}
       <Link className={style.buttonCreate} href={"/Create_Booking"}>
         <p>Create Booking</p>
