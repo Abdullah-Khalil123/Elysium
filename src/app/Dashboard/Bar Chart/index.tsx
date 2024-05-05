@@ -1,6 +1,8 @@
 "use client";
 import style from "./style.module.css";
 import { Bar, Line } from "react-chartjs-2";
+import { Bounce, ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import URI from "@/Data/API";
 import {
   Chart as Chartjs,
@@ -16,6 +18,7 @@ import {
 } from "chart.js";
 import { useEffect, useState } from "react";
 import moment from "moment";
+import { promises } from "dns";
 Chartjs.register({
   CategoryScale,
   LinearScale,
@@ -219,13 +222,23 @@ const ChartComponent = () => {
       console.error("Error fetching occupancy data:", e);
     }
   }
+
   useEffect(() => {
     getOccRate();
     getMonthlyFlow();
+    toast.promise(getOccRate(), {
+      pending: "Fetching Occupancy Statistics",
+      error: "Failed",
+    });
+    toast.promise(getMonthlyFlow(), {
+      pending: "etching Occupancy Daily Rents",
+      error: "Failed",
+    });
   }, []);
 
   return (
     <div className={style.GraphArea}>
+      <ToastContainer />
       <div className={style.BarGraph}>
         <p>Occupancy Statistics</p>
         {OccdataValues ? (
