@@ -40,7 +40,7 @@ interface LineDataType {
   amount: number;
   day: number;
 }
-const Monthlabels = [
+let AllMonthlabels = [
   "January",
   "February",
   "March",
@@ -107,7 +107,7 @@ const ChartComponent = () => {
     daysArray.push(i);
   }
   const [OccdataValues, setOccdataValues] = useState({
-    labels: Monthlabels,
+    labels: AllMonthlabels,
     datasets: [
       {
         data: [],
@@ -133,7 +133,7 @@ const ChartComponent = () => {
       const response = await fetch(uri);
       const data = await response.json();
       const newData = {
-        labels: Monthlabels,
+        labels: AllMonthlabels,
         datasets: [
           {
             data: data
@@ -223,6 +223,7 @@ const ChartComponent = () => {
   }
 
   useEffect(() => {
+    AllMonthlabels.splice(moment().month() + 1);
     getOccRate();
     getMonthlyFlow();
     toast.promise(getOccRate(), {
