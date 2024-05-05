@@ -231,7 +231,7 @@ const ChartComponent = () => {
       error: "Failed",
     });
     toast.promise(getMonthlyFlow(), {
-      pending: "etching Occupancy Daily Rents",
+      pending: "Fetching Occupancy Daily Rents",
       error: "Failed",
     });
   }, []);
