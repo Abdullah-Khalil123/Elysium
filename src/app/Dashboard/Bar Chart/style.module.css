@@ -8,7 +8,9 @@
     /* margin-top: 20px; */
 
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 .BarGraph, .testing {
     min-height: 250px;
@@ -20,8 +22,10 @@
     background-color: white;
     border-radius: 10px;
 }
-
-@media screen and (max-width: 900px){
+.BarGraph,.testing {
+    margin: 0px 5px;
+}
+@media screen and (max-width: 1100px){
     .GraphArea {
         flex-direction: column;
         align-items: center;
