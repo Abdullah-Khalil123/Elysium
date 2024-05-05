@@ -1,7 +1,7 @@
 "use client";
 import style from "./style.module.css";
 import { Bar, Line } from "react-chartjs-2";
-import { Bounce, ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import URI from "@/Data/API";
 import {
@@ -18,7 +18,6 @@ import {
 } from "chart.js";
 import { useEffect, useState } from "react";
 import moment from "moment";
-import { promises } from "dns";
 Chartjs.register({
   CategoryScale,
   LinearScale,

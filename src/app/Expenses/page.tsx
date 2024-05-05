@@ -4,7 +4,8 @@ import style from "./page.module.css";
 import Select from "antd/es/select";
 import DatePicker from "antd/es/date-picker";
 import { useEffect, useState } from "react";
-import URI from "../../Data/API";
+import Loading from "../Loader";
+import URI from "@/Data/API";
 import moment from "moment";
 interface ExpenseDataType {
   Date: string;
@@ -12,40 +13,49 @@ interface ExpenseDataType {
   ExpenseItem: string;
   ExpenseAmount: number;
 }
+const RoomOptions = [
+  { value: 0, label: "501" },
+  { value: 1, label: "601" },
+];
 const Expenses = () => {
   const [today, settoday] = useState(moment());
-  const [roomSelected, setroomSelected] = useState<number>();
   const [ExpenseData, setExpenseData] = useState<ExpenseDataType[]>([]);
-  const RoomOptions = [
-    { value: 0, label: "501" },
-    { value: 1, label: "601" },
-  ];
+  const [isLoading, setisLoading] = useState(true);
+  const [roomSelected, setroomSelected] = useState<number>(
+    RoomOptions[0].value
+  );
 
   async function getExpenses(room: any, today: moment.Moment) {
-    const uri = `${URI}/api/Expenses?room=${room}&month=${
-      today.month() + 1
-    }&year=${today.year()}`;
-    // console.log(uri);
-    const response = await fetch(uri, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    try {
+      const uri = `${URI}/api/Expenses?room=${room}&month=${
+        today.month() + 1
+      }&year=${today.year()}`;
+      const response = await fetch(uri, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-    const data = await response.json();
-    setExpenseData(data);
-    // console.log(ExpenseData);
+      const data = await response.json();
+      setExpenseData(data);
+    } catch (error) {
+      console.error("Error Getting Expenses", error);
+    } finally {
+      setisLoading(false);
+    }
   }
 
   function handleRoomChange(room: any) {
     if (room != null) {
+      setisLoading(true);
       setroomSelected(room);
       getExpenses(room, today);
     }
   }
   function handleMonthChange(month: any) {
     if (month != null) {
+      setisLoading(true);
       settoday(month);
       getExpenses(roomSelected, month);
     }
@@ -68,7 +78,7 @@ const Expenses = () => {
           onChange={handleMonthChange}
         />
       </div>
-      <Table expenseData={ExpenseData} />
+      {isLoading ? <Loading /> : <Table expenseData={ExpenseData} />}
     </div>
   );
 };
