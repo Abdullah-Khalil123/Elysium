@@ -67,3 +67,10 @@
     margin: 5px 0;
 }
 
+
+@media screen and (max-width: 1000px){
+    
+    .addExpense {
+        width: 300px;
+    }
+}

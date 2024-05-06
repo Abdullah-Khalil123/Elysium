@@ -1,10 +1,11 @@
 .createBooking {
+    
     display: flex;
-    align-items: center;
-    justify-content: space-around;
     flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 10px;
     width: 300px;
-    height: 120px;
     background-color: white;
     border-radius: 10px;
 
@@ -12,16 +13,19 @@
 
 .bookingBtn {
     height: 30px;
-    width: 200px;
+    width: 30px;
     outline: none;
-    border-radius: 5px;
+    border-radius: 50%;
     background-color: #1570ef;
     color: white;
     font-size: 14px;
     font-weight: 600;
     border: none;
 }
-
+.bookingBtn:hover {
+    cursor: pointer;
+    background-color: #0e69e9e0;
+}
 .backDrop {
     position: absolute;
     top: 0;
@@ -31,3 +35,15 @@
     background-color: rgba(0, 0, 0, 0.175);
     z-index: 5;
 }
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.flex p {
+    font-weight: 400;
+    font-size: 15px;
+}
+

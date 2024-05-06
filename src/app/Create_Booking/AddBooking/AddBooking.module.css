@@ -93,3 +93,11 @@
 .buttons button:nth-of-type(1):hover {
     background-color: #0067f6;
 }
+
+
+@media screen and (max-width: 1000px){
+    
+    .booking {
+        width: 300px;
+    }
+}
